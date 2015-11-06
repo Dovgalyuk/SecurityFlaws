@@ -1,0 +1,3 @@
+Entering 12 characters smashes the stack.
+DECAF without address dependencies does not catch this.
+DECAF with address dependencies enables catches false positives. 
