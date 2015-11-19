@@ -1,6 +1,9 @@
 #ideas for script taken from https://github.com/Manu343726/cpp-dod-tests/blob/master/CMakeLists.txt
 
 cmake_minimum_required(VERSION 2.6)
+# disable all builds except release
+set(CMAKE_CONFIGURATION_TYPES Release CACHE TYPE INTERNAL FORCE)
+
 project(FunctionSamples C)
 set(SOURCES sample01)
 
@@ -14,7 +17,10 @@ foreach(name ${SOURCES})
     add_executable(${name} src/${name}.c)
 
     if(MSVC)
-        target_compile_options(${name} PRIVATE " /Fa${OUTPUT_PATH}/${name}.asm" " /FA")
+        # enable assembly output
+        target_compile_options(${name} PRIVATE " /Fa${OUTPUT_PATH}/${name}.asm" " /FAs")
+        # disable stack protection
+        target_compile_options(${name} PRIVATE " /GS-")
     else()
         add_custom_command(TARGET ${name}
                            POST_BUILD
