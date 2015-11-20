@@ -14,7 +14,7 @@ struct S func(void)
 {
   char buf[8];
   struct S s;
-  s.a = gets(buf) - buf;
+  s.a = (int)gets(buf) - (int)buf;
   s.b = printf(buf);
   s.c = s.a + s.b;
   return s;
