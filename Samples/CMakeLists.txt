@@ -5,7 +5,10 @@ cmake_minimum_required(VERSION 2.6)
 set(CMAKE_CONFIGURATION_TYPES Release CACHE TYPE INTERNAL FORCE)
 
 project(FunctionSamples C)
-set(SOURCES sample01)
+set(SOURCES main func func-iparam func-fparam func-rets func-va)
+if (NOT (MSVC))
+    list(APPEND SOURCES main-vla func-vla)
+endif()
 
 set(OUTPUT_PATH ${CMAKE_BINARY_DIR}/asm)
 if(NOT (EXISTS OUTPUT_PATH))
@@ -21,6 +24,8 @@ foreach(name ${SOURCES})
         target_compile_options(${name} PRIVATE " /Fa${OUTPUT_PATH}/${name}.asm" " /FAs")
         # disable stack protection
         target_compile_options(${name} PRIVATE " /GS-")
+        # disable inlining
+        target_compile_options(${name} PRIVATE " /Ob0")
     else()
         add_custom_command(TARGET ${name}
                            POST_BUILD

@@ -8,7 +8,7 @@
 
 int main()
 {
-  char buf[4];
+  char buf[8];
   gets(buf);
   printf(buf);
   return 0;
