@@ -15,25 +15,52 @@ if(NOT (EXISTS OUTPUT_PATH))
     file(MAKE_DIRECTORY ${OUTPUT_PATH})
 endif()
 
+# set compiler options
+if(MSVC)
+  list(APPEND optnames "omitfp" "stackp")
+  list(APPEND options  " /Oy"   " /GS")
+  list(APPEND optionsn " /Oy-"  " /GS-")
+else()
+endif()
+
 foreach(name ${SOURCES})
-    message(STATUS "Setting up ${name}...")
-    add_executable(${name} src/${name}.c)
+  list(LENGTH optnames optcount)
+  math(EXPR iterations "(1 << ${optcount}) - 1")
+  foreach(i RANGE ${iterations})
+    # setup full name
+    math(EXPR count "${optcount} - 1")
+    set(fullname ${name})
+    set(opts)
+    foreach(j RANGE ${count})
+      math(EXPR t "(1 << ${j}) & ${i}")
+      if(t)
+        list(GET optnames ${j} optname)
+        list(GET options ${j} opt)
+        set(fullname "${fullname}-${optname}")
+      else()
+        list(GET optionsn ${j} opt)
+      endif()
+      list(APPEND opts ${opt})
+    endforeach()
+
+    message(STATUS "Setting up ${fullname}...")
+    add_executable(${fullname} src/${name}.c)
 
     if(MSVC)
         # enable assembly output
-        target_compile_options(${name} PRIVATE " /Fa${OUTPUT_PATH}/${name}.asm" " /FAs")
-        # disable stack protection
-        target_compile_options(${name} PRIVATE " /GS-")
+        target_compile_options(${fullname} PRIVATE " /Fa${OUTPUT_PATH}/${fullname}.asm" " /FAs")
         # disable inlining
-        target_compile_options(${name} PRIVATE " /Ob0")
+        target_compile_options(${fullname} PRIVATE " /Ob0")
+        # project-specific options
+        target_compile_options(${fullname} PRIVATE ${opts})
     else()
-        add_custom_command(TARGET ${name}
+        add_custom_command(TARGET ${fullname}
                            POST_BUILD
-                           COMMAND make ARGS ${name}.s
+                           COMMAND make ARGS ${fullname}.s
                            COMMAND ${CMAKE_COMMAND} -E copy
-                               "${CMAKE_BINARY_DIR}/CMakeFiles/${name}.dir/${name}.c.s"
-                               "${OUTPUT_PATH}/${name}.s"
+                               "${CMAKE_BINARY_DIR}/CMakeFiles/${fullname}.dir/${name}.c.s"
+                               "${OUTPUT_PATH}/${fullname}.s"
                            WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
     endif()
-
+  endforeach()
 endforeach()
