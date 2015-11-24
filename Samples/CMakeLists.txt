@@ -56,9 +56,9 @@ foreach(name ${SOURCES})
     else()
         add_custom_command(TARGET ${fullname}
                            POST_BUILD
-                           COMMAND make ARGS ${fullname}.s
+                           COMMAND make ARGS src/${fullname}.c.s
                            COMMAND ${CMAKE_COMMAND} -E copy
-                               "${CMAKE_BINARY_DIR}/CMakeFiles/${fullname}.dir/${name}.c.s"
+                               "${CMAKE_BINARY_DIR}/CMakeFiles/${fullname}.dir/src/${name}.c.s"
                                "${OUTPUT_PATH}/${fullname}.s"
                            WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
     endif()
