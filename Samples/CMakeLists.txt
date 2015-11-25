@@ -1,5 +1,12 @@
 #ideas for script taken from https://github.com/Manu343726/cpp-dod-tests/blob/master/CMakeLists.txt
 
+# Build instructions
+# execute cmake in build subdirectory
+# MSVC 32-bit build:
+#  cmake ..
+# MSVC 64-bit build:
+#  cmake .. -G"Visual Studio 10 Win64"
+
 cmake_minimum_required(VERSION 2.6)
 # disable all builds except release
 set(CMAKE_CONFIGURATION_TYPES Release CACHE TYPE INTERNAL FORCE)
@@ -55,13 +62,13 @@ foreach(name ${SOURCES})
     message(STATUS "Setting up ${fullname}...")
     add_executable(${fullname} src/${name}.c)
 
+    # project-specific options
+    target_compile_options(${fullname} PRIVATE ${opts})
     if(MSVC)
         # enable assembly output
         target_compile_options(${fullname} PRIVATE " /Fa${OUTPUT_PATH}/${fullname}.asm" " /FAs")
         # disable inlining
         target_compile_options(${fullname} PRIVATE " /Ob0")
-        # project-specific options
-        target_compile_options(${fullname} PRIVATE ${opts})
     else()
         add_custom_command(TARGET ${fullname}
                            POST_BUILD
