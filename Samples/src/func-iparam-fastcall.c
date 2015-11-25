@@ -7,7 +7,7 @@
 
 void
 #if defined(__GNUC__)
-__attribute__(fastcall)
+__attribute__((fastcall))
 #elif defined(_MSC_VER)
 __fastcall
 #else

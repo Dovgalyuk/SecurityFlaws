@@ -7,7 +7,7 @@
 
 void
 #if defined(__GNUC__)
-__attribute__(stdcall)
+__attribute__((stdcall))
 #elif defined(_MSC_VER)
 __stdcall
 #else
