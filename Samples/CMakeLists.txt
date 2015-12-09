@@ -15,7 +15,7 @@ set(CMAKE_CONFIGURATION_TYPES Release CACHE TYPE INTERNAL FORCE)
 
 project(FunctionSamples C)
 set(SOURCES main func func-iparam func-iparam-stdcall func-iparam-fastcall
-            func-fparam func-rets func-va)
+            func-fparam func-rets func-va struct struct-align)
 if (NOT (MSVC))
     list(APPEND SOURCES main-vla func-vla)
 endif()
