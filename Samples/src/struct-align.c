@@ -13,7 +13,7 @@ struct S
   long long a, b, c;
 }
 #if defined(__GNUC__)
-__attribute__ ((aligned(32)))
+__attribute__((aligned(32)))
 #endif
 ;
 
