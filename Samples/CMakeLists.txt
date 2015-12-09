@@ -6,6 +6,8 @@
 #  cmake ..
 # MSVC 64-bit build:
 #  cmake .. -G"Visual Studio 10 Win64"
+# MSYS MinGW build:
+#  cmake .. -G"MSYS Makefiles"
 
 cmake_minimum_required(VERSION 2.6)
 # disable all builds except release
@@ -50,6 +52,12 @@ else()
   endif()
 endif()
 
+if(WIN32)
+  set(obj_suffix "obj")
+else()
+  set(obj_suffix "o")
+endif()
+
 foreach(name ${SOURCES})
   list(LENGTH optnames optcount)
   math(EXPR iterations "(1 << ${optcount}) - 1")
@@ -87,7 +95,7 @@ foreach(name ${SOURCES})
         add_custom_command(TARGET ${fullname}
                            POST_BUILD
                            COMMAND objdump -d
-                               "${CMAKE_BINARY_DIR}/CMakeFiles/${fullname}.dir/src/${name}.c.o" >
+                               "${CMAKE_BINARY_DIR}/CMakeFiles/${fullname}.dir/src/${name}.c.${obj_suffix}" >
                                "${OUTPUT_PATH}/${fullname}.s"
                            WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
     endif()
