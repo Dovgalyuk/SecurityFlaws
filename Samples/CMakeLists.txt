@@ -46,7 +46,7 @@ else()
     list(APPEND options  -fstack-protector)
     list(APPEND optionsn -fno-stack-protector)
   else()
-    list(APPEND default_options -fno-stack-protector)
+    list(APPEND default_options -fno-stack-protector -O3)
   endif()
 endif()
 
