@@ -25,7 +25,7 @@ if(NOT (EXISTS OUTPUT_PATH))
     file(MAKE_DIRECTORY ${OUTPUT_PATH})
 endif()
 
-set(USE_STACKP FALSE)
+set(USE_STACKP TRUE)
 
 # set compiler options
 if(MSVC)
