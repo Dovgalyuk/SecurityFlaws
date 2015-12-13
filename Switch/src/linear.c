@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int func(int a)
 {
   switch (a)
@@ -12,4 +14,11 @@ int func(int a)
   case 8: return a+7;
   }
   return -1;
+}
+
+int main()
+{
+  int a;
+  scanf("%d", &a);
+  return func(a);
 }
