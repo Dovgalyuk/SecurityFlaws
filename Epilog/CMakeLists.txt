@@ -29,9 +29,9 @@ set(USE_STACKP TRUE)
 
 # set compiler options
 if(MSVC)
-  list(APPEND optnames "omitfp")
-  list(APPEND options  " /Oy"  )
-  list(APPEND optionsn " /Oy-" )
+  list(APPEND optnames "omitfp" "opt")
+  list(APPEND options  " /Oy"   " /Ot")
+  list(APPEND optionsn " /Oy-"  " /Od")
   if(USE_STACKP)
     list(APPEND optnames "stackp")
     list(APPEND options  " /GS")
