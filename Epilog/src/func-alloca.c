@@ -9,8 +9,9 @@
 void func(void)
 {
   int sz;
+  char *buf;
   scanf("%d", &sz);
-  char *buf = alloca(sz);
+  buf = (char*)alloca(sz);
   gets(buf);
   printf(buf);
 }

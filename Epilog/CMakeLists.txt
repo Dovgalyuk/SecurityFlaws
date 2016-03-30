@@ -3,7 +3,7 @@
 # Build instructions
 # execute cmake in build subdirectory
 # MSVC 32-bit build:
-#  cmake ..
+#  cmake .. -G"Visual Studio 10"
 # MSVC 64-bit build:
 #  cmake .. -G"Visual Studio 10 Win64"
 # MSYS MinGW build:
