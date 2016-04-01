@@ -8,6 +8,7 @@
 struct S
 {
   int a, b, c;
+  char buf[8];
 };
 
 struct S func(void)
@@ -22,7 +23,13 @@ struct S func(void)
 
 int main()
 {
-  func();
-  return 0;
+  struct S a,b,c;
+  int z = 0;
+  a = func();
+  z += a.a;
+  b = func();
+  c = func();
+  z += c.c + b.b;
+  return z;
 }
 
