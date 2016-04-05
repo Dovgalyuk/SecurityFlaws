@@ -1,0 +1,76 @@
+
+/root/AntiTaint/Epilog/build/CMakeFiles/func-iparam-opt-stackp.dir/src/func-iparam.c.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <func>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	57                   	push   %edi
+   4:	56                   	push   %esi
+   5:	53                   	push   %ebx
+   6:	8d 5d dc             	lea    -0x24(%ebp),%ebx
+   9:	83 ec 38             	sub    $0x38,%esp
+   c:	8b 55 10             	mov    0x10(%ebp),%edx
+   f:	8b 75 08             	mov    0x8(%ebp),%esi
+  12:	53                   	push   %ebx
+  13:	8b 7d 0c             	mov    0xc(%ebp),%edi
+  16:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
+  1c:	89 45 e4             	mov    %eax,-0x1c(%ebp)
+  1f:	31 c0                	xor    %eax,%eax
+  21:	89 55 d4             	mov    %edx,-0x2c(%ebp)
+  24:	e8 fc ff ff ff       	call   25 <func+0x25>
+  29:	8b 55 d4             	mov    -0x2c(%ebp),%edx
+  2c:	89 1c 24             	mov    %ebx,(%esp)
+  2f:	52                   	push   %edx
+  30:	57                   	push   %edi
+  31:	56                   	push   %esi
+  32:	68 00 00 00 00       	push   $0x0
+  37:	e8 fc ff ff ff       	call   38 <func+0x38>
+  3c:	83 c4 20             	add    $0x20,%esp
+  3f:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+  42:	65 33 05 14 00 00 00 	xor    %gs:0x14,%eax
+  49:	75 08                	jne    53 <func+0x53>
+  4b:	8d 65 f4             	lea    -0xc(%ebp),%esp
+  4e:	5b                   	pop    %ebx
+  4f:	5e                   	pop    %esi
+  50:	5f                   	pop    %edi
+  51:	5d                   	pop    %ebp
+  52:	c3                   	ret    
+  53:	e8 fc ff ff ff       	call   54 <func+0x54>
+
+Disassembly of section .text.startup:
+
+00000000 <main>:
+   0:	8d 4c 24 04          	lea    0x4(%esp),%ecx
+   4:	83 e4 f0             	and    $0xfffffff0,%esp
+   7:	ff 71 fc             	pushl  -0x4(%ecx)
+   a:	55                   	push   %ebp
+   b:	89 e5                	mov    %esp,%ebp
+   d:	53                   	push   %ebx
+   e:	51                   	push   %ecx
+   f:	8d 5d ec             	lea    -0x14(%ebp),%ebx
+  12:	83 ec 1c             	sub    $0x1c,%esp
+  15:	53                   	push   %ebx
+  16:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
+  1c:	89 45 f4             	mov    %eax,-0xc(%ebp)
+  1f:	31 c0                	xor    %eax,%eax
+  21:	e8 fc ff ff ff       	call   22 <main+0x22>
+  26:	89 1c 24             	mov    %ebx,(%esp)
+  29:	6a 03                	push   $0x3
+  2b:	6a 02                	push   $0x2
+  2d:	6a 01                	push   $0x1
+  2f:	68 00 00 00 00       	push   $0x0
+  34:	e8 fc ff ff ff       	call   35 <main+0x35>
+  39:	8b 55 f4             	mov    -0xc(%ebp),%edx
+  3c:	65 33 15 14 00 00 00 	xor    %gs:0x14,%edx
+  43:	75 0c                	jne    51 <main+0x51>
+  45:	8d 65 f8             	lea    -0x8(%ebp),%esp
+  48:	31 c0                	xor    %eax,%eax
+  4a:	59                   	pop    %ecx
+  4b:	5b                   	pop    %ebx
+  4c:	5d                   	pop    %ebp
+  4d:	8d 61 fc             	lea    -0x4(%ecx),%esp
+  50:	c3                   	ret    
+  51:	e8 fc ff ff ff       	call   52 <main+0x52>
