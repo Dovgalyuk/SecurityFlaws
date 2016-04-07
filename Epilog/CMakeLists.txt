@@ -8,6 +8,9 @@
 #  cmake .. -G"Visual Studio 10 Win64"
 # MSYS MinGW build:
 #  cmake .. -G"MSYS Makefiles"
+# Clang build
+#  export CC=/usr/bin/clang
+#  cmake ..
 
 cmake_minimum_required(VERSION 2.6)
 # disable all builds except release
