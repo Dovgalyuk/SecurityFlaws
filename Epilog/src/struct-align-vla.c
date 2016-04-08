@@ -27,6 +27,14 @@ void fill(struct S *s)
   s->c = c;
 }
 
+void print(struct S *s, int n)
+{
+  int i;
+  for (i = 0 ; i < n ; ++i) {
+      printf("%d %d %d\n", (int)s[i].a, (int)s[i].b, (int)s[i].c);
+  }
+}
+
 void func(void)
 {
   char buf[8];
@@ -36,8 +44,9 @@ void func(void)
   struct S s[n];
   for (i = 0 ; i < n ; ++i) {
       fill(&s[i]);
-      printf("%s %d %d %d\n", buf, (int)s[i].a, (int)s[i].b, (int)s[i].c);
   }
+  printf("%s\n", buf);
+  print(s, n);
 }
 
 int main()
