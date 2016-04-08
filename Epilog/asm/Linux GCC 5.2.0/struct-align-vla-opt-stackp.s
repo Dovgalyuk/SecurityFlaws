@@ -44,82 +44,138 @@ Disassembly of section .text:
   67:	89 f6                	mov    %esi,%esi
   69:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
 
-00000070 <func>:
+00000070 <print>:
   70:	55                   	push   %ebp
   71:	89 e5                	mov    %esp,%ebp
   73:	57                   	push   %edi
   74:	56                   	push   %esi
   75:	53                   	push   %ebx
-  76:	83 ec 38             	sub    $0x38,%esp
-  79:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
-  7f:	89 45 e4             	mov    %eax,-0x1c(%ebp)
-  82:	31 c0                	xor    %eax,%eax
-  84:	8d 45 dc             	lea    -0x24(%ebp),%eax
-  87:	50                   	push   %eax
-  88:	e8 fc ff ff ff       	call   89 <func+0x19>
-  8d:	8d 45 cc             	lea    -0x34(%ebp),%eax
-  90:	83 c4 0c             	add    $0xc,%esp
-  93:	50                   	push   %eax
-  94:	8d 45 dc             	lea    -0x24(%ebp),%eax
-  97:	68 09 00 00 00       	push   $0x9
-  9c:	50                   	push   %eax
-  9d:	e8 fc ff ff ff       	call   9e <func+0x2e>
-  a2:	8b 45 cc             	mov    -0x34(%ebp),%eax
-  a5:	83 c4 10             	add    $0x10,%esp
-  a8:	89 c2                	mov    %eax,%edx
-  aa:	c1 e2 05             	shl    $0x5,%edx
-  ad:	83 c2 20             	add    $0x20,%edx
-  b0:	29 d4                	sub    %edx,%esp
-  b2:	8d 5c 24 1f          	lea    0x1f(%esp),%ebx
-  b6:	83 e3 e0             	and    $0xffffffe0,%ebx
-  b9:	85 c0                	test   %eax,%eax
-  bb:	7e 5c                	jle    119 <func+0xa9>
-  bd:	31 f6                	xor    %esi,%esi
-  bf:	90                   	nop
-  c0:	8d 45 d8             	lea    -0x28(%ebp),%eax
-  c3:	83 c6 01             	add    $0x1,%esi
-  c6:	83 c3 20             	add    $0x20,%ebx
-  c9:	50                   	push   %eax
-  ca:	8d 45 d4             	lea    -0x2c(%ebp),%eax
-  cd:	50                   	push   %eax
-  ce:	8d 45 d0             	lea    -0x30(%ebp),%eax
-  d1:	50                   	push   %eax
-  d2:	68 00 00 00 00       	push   $0x0
-  d7:	e8 fc ff ff ff       	call   d8 <func+0x68>
-  dc:	8b 45 d0             	mov    -0x30(%ebp),%eax
-  df:	89 43 e0             	mov    %eax,-0x20(%ebx)
-  e2:	99                   	cltd   
-  e3:	89 c1                	mov    %eax,%ecx
-  e5:	8b 45 d4             	mov    -0x2c(%ebp),%eax
-  e8:	89 53 e4             	mov    %edx,-0x1c(%ebx)
-  eb:	89 43 e8             	mov    %eax,-0x18(%ebx)
-  ee:	99                   	cltd   
-  ef:	89 c7                	mov    %eax,%edi
-  f1:	8b 45 d8             	mov    -0x28(%ebp),%eax
-  f4:	89 53 ec             	mov    %edx,-0x14(%ebx)
-  f7:	99                   	cltd   
-  f8:	89 43 f0             	mov    %eax,-0x10(%ebx)
-  fb:	89 53 f4             	mov    %edx,-0xc(%ebx)
-  fe:	89 04 24             	mov    %eax,(%esp)
- 101:	8d 45 dc             	lea    -0x24(%ebp),%eax
- 104:	57                   	push   %edi
- 105:	51                   	push   %ecx
- 106:	50                   	push   %eax
- 107:	68 0c 00 00 00       	push   $0xc
- 10c:	e8 fc ff ff ff       	call   10d <func+0x9d>
- 111:	83 c4 20             	add    $0x20,%esp
- 114:	39 75 cc             	cmp    %esi,-0x34(%ebp)
- 117:	7f a7                	jg     c0 <func+0x50>
- 119:	8b 45 e4             	mov    -0x1c(%ebp),%eax
- 11c:	65 33 05 14 00 00 00 	xor    %gs:0x14,%eax
- 123:	75 08                	jne    12d <func+0xbd>
- 125:	8d 65 f4             	lea    -0xc(%ebp),%esp
- 128:	5b                   	pop    %ebx
- 129:	5e                   	pop    %esi
- 12a:	5f                   	pop    %edi
- 12b:	5d                   	pop    %ebp
- 12c:	c3                   	ret    
- 12d:	e8 fc ff ff ff       	call   12e <func+0xbe>
+  76:	83 ec 1c             	sub    $0x1c,%esp
+  79:	8b 7d 0c             	mov    0xc(%ebp),%edi
+  7c:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
+  82:	89 45 e4             	mov    %eax,-0x1c(%ebp)
+  85:	31 c0                	xor    %eax,%eax
+  87:	8b 45 08             	mov    0x8(%ebp),%eax
+  8a:	85 ff                	test   %edi,%edi
+  8c:	7e 29                	jle    b7 <print+0x47>
+  8e:	8d 58 10             	lea    0x10(%eax),%ebx
+  91:	31 f6                	xor    %esi,%esi
+  93:	90                   	nop
+  94:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  98:	ff 33                	pushl  (%ebx)
+  9a:	ff 73 f8             	pushl  -0x8(%ebx)
+  9d:	83 c6 01             	add    $0x1,%esi
+  a0:	ff 73 f0             	pushl  -0x10(%ebx)
+  a3:	68 09 00 00 00       	push   $0x9
+  a8:	83 c3 20             	add    $0x20,%ebx
+  ab:	e8 fc ff ff ff       	call   ac <print+0x3c>
+  b0:	83 c4 10             	add    $0x10,%esp
+  b3:	39 f7                	cmp    %esi,%edi
+  b5:	75 e1                	jne    98 <print+0x28>
+  b7:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+  ba:	65 33 05 14 00 00 00 	xor    %gs:0x14,%eax
+  c1:	75 08                	jne    cb <print+0x5b>
+  c3:	8d 65 f4             	lea    -0xc(%ebp),%esp
+  c6:	5b                   	pop    %ebx
+  c7:	5e                   	pop    %esi
+  c8:	5f                   	pop    %edi
+  c9:	5d                   	pop    %ebp
+  ca:	c3                   	ret    
+  cb:	e8 fc ff ff ff       	call   cc <print+0x5c>
+
+000000d0 <func>:
+  d0:	55                   	push   %ebp
+  d1:	89 e5                	mov    %esp,%ebp
+  d3:	57                   	push   %edi
+  d4:	56                   	push   %esi
+  d5:	53                   	push   %ebx
+  d6:	31 db                	xor    %ebx,%ebx
+  d8:	8d 7d d8             	lea    -0x28(%ebp),%edi
+  db:	83 ec 48             	sub    $0x48,%esp
+  de:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
+  e4:	89 45 e4             	mov    %eax,-0x1c(%ebp)
+  e7:	31 c0                	xor    %eax,%eax
+  e9:	8d 45 dc             	lea    -0x24(%ebp),%eax
+  ec:	50                   	push   %eax
+  ed:	e8 fc ff ff ff       	call   ee <func+0x1e>
+  f2:	8d 45 cc             	lea    -0x34(%ebp),%eax
+  f5:	83 c4 0c             	add    $0xc,%esp
+  f8:	50                   	push   %eax
+  f9:	8d 45 dc             	lea    -0x24(%ebp),%eax
+  fc:	68 13 00 00 00       	push   $0x13
+ 101:	50                   	push   %eax
+ 102:	e8 fc ff ff ff       	call   103 <func+0x33>
+ 107:	8b 45 cc             	mov    -0x34(%ebp),%eax
+ 10a:	83 c4 10             	add    $0x10,%esp
+ 10d:	89 c2                	mov    %eax,%edx
+ 10f:	c1 e2 05             	shl    $0x5,%edx
+ 112:	83 c2 20             	add    $0x20,%edx
+ 115:	29 d4                	sub    %edx,%esp
+ 117:	8d 54 24 1f          	lea    0x1f(%esp),%edx
+ 11b:	83 e2 e0             	and    $0xffffffe0,%edx
+ 11e:	85 c0                	test   %eax,%eax
+ 120:	89 55 c4             	mov    %edx,-0x3c(%ebp)
+ 123:	89 d6                	mov    %edx,%esi
+ 125:	7e 4e                	jle    175 <func+0xa5>
+ 127:	89 f6                	mov    %esi,%esi
+ 129:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
+ 130:	8d 45 d4             	lea    -0x2c(%ebp),%eax
+ 133:	57                   	push   %edi
+ 134:	83 c3 01             	add    $0x1,%ebx
+ 137:	83 c6 20             	add    $0x20,%esi
+ 13a:	50                   	push   %eax
+ 13b:	8d 45 d0             	lea    -0x30(%ebp),%eax
+ 13e:	50                   	push   %eax
+ 13f:	68 00 00 00 00       	push   $0x0
+ 144:	e8 fc ff ff ff       	call   145 <func+0x75>
+ 149:	8b 45 d0             	mov    -0x30(%ebp),%eax
+ 14c:	83 c4 10             	add    $0x10,%esp
+ 14f:	89 46 e0             	mov    %eax,-0x20(%esi)
+ 152:	c1 f8 1f             	sar    $0x1f,%eax
+ 155:	89 46 e4             	mov    %eax,-0x1c(%esi)
+ 158:	8b 45 d4             	mov    -0x2c(%ebp),%eax
+ 15b:	89 46 e8             	mov    %eax,-0x18(%esi)
+ 15e:	c1 f8 1f             	sar    $0x1f,%eax
+ 161:	89 46 ec             	mov    %eax,-0x14(%esi)
+ 164:	8b 45 d8             	mov    -0x28(%ebp),%eax
+ 167:	89 46 f0             	mov    %eax,-0x10(%esi)
+ 16a:	c1 f8 1f             	sar    $0x1f,%eax
+ 16d:	89 46 f4             	mov    %eax,-0xc(%esi)
+ 170:	39 5d cc             	cmp    %ebx,-0x34(%ebp)
+ 173:	7f bb                	jg     130 <func+0x60>
+ 175:	8d 45 dc             	lea    -0x24(%ebp),%eax
+ 178:	83 ec 0c             	sub    $0xc,%esp
+ 17b:	31 ff                	xor    %edi,%edi
+ 17d:	50                   	push   %eax
+ 17e:	e8 fc ff ff ff       	call   17f <func+0xaf>
+ 183:	8b 75 cc             	mov    -0x34(%ebp),%esi
+ 186:	8b 5d c4             	mov    -0x3c(%ebp),%ebx
+ 189:	83 c4 10             	add    $0x10,%esp
+ 18c:	83 c3 10             	add    $0x10,%ebx
+ 18f:	85 f6                	test   %esi,%esi
+ 191:	7e 24                	jle    1b7 <func+0xe7>
+ 193:	90                   	nop
+ 194:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+ 198:	ff 33                	pushl  (%ebx)
+ 19a:	ff 73 f8             	pushl  -0x8(%ebx)
+ 19d:	83 c7 01             	add    $0x1,%edi
+ 1a0:	ff 73 f0             	pushl  -0x10(%ebx)
+ 1a3:	68 09 00 00 00       	push   $0x9
+ 1a8:	83 c3 20             	add    $0x20,%ebx
+ 1ab:	e8 fc ff ff ff       	call   1ac <func+0xdc>
+ 1b0:	83 c4 10             	add    $0x10,%esp
+ 1b3:	39 fe                	cmp    %edi,%esi
+ 1b5:	75 e1                	jne    198 <func+0xc8>
+ 1b7:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 1ba:	65 33 05 14 00 00 00 	xor    %gs:0x14,%eax
+ 1c1:	75 08                	jne    1cb <func+0xfb>
+ 1c3:	8d 65 f4             	lea    -0xc(%ebp),%esp
+ 1c6:	5b                   	pop    %ebx
+ 1c7:	5e                   	pop    %esi
+ 1c8:	5f                   	pop    %edi
+ 1c9:	5d                   	pop    %ebp
+ 1ca:	c3                   	ret    
+ 1cb:	e8 fc ff ff ff       	call   1cc <func+0xfc>
 
 Disassembly of section .text.startup:
 

@@ -94,7 +94,7 @@ foreach(name ${SOURCES})
         # disable inlining
         target_compile_options(${fullname} PRIVATE " /Ob0")
     else()
-        if (NOT ${CMAKE_SYSTEM} MATCHES "Linux*ARCH")
+        if (${CMAKE_SYSTEM} MATCHES "Linux*ARCH")
             target_link_libraries(${fullname} ssp)
         endif()
         target_compile_options(${fullname} PRIVATE -save-temps)
