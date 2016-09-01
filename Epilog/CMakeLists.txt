@@ -20,7 +20,7 @@ project(FunctionSamples C)
 set(SOURCES main func func-iparam func-iparam-stdcall func-iparam-fastcall
             func-fparam func-rets func-va struct struct-align func-alloca)
 if (NOT (MSVC))
-    list(APPEND SOURCES main-vla func-vla struct-align-vla)
+    list(APPEND SOURCES main-vla func-vla func-vla2 struct-align-vla)
 endif()
 
 set(OUTPUT_PATH ${CMAKE_BINARY_DIR}/asm)
