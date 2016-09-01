@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /*
-  Attributes: FUNC VLA
+  Attributes: FUNC VLA2
 */
 
 void func(void)
