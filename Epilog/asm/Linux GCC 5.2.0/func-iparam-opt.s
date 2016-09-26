@@ -31,22 +31,14 @@ Disassembly of section .text.startup:
    7:	ff 71 fc             	pushl  -0x4(%ecx)
    a:	55                   	push   %ebp
    b:	89 e5                	mov    %esp,%ebp
-   d:	53                   	push   %ebx
-   e:	51                   	push   %ecx
-   f:	8d 5d f0             	lea    -0x10(%ebp),%ebx
-  12:	83 ec 1c             	sub    $0x1c,%esp
-  15:	53                   	push   %ebx
-  16:	e8 fc ff ff ff       	call   17 <main+0x17>
-  1b:	89 1c 24             	mov    %ebx,(%esp)
-  1e:	6a 03                	push   $0x3
-  20:	6a 02                	push   $0x2
-  22:	6a 01                	push   $0x1
-  24:	68 00 00 00 00       	push   $0x0
-  29:	e8 fc ff ff ff       	call   2a <main+0x2a>
-  2e:	8d 65 f8             	lea    -0x8(%ebp),%esp
-  31:	31 c0                	xor    %eax,%eax
-  33:	59                   	pop    %ecx
-  34:	5b                   	pop    %ebx
-  35:	5d                   	pop    %ebp
-  36:	8d 61 fc             	lea    -0x4(%ecx),%esp
-  39:	c3                   	ret    
+   d:	51                   	push   %ecx
+   e:	83 ec 08             	sub    $0x8,%esp
+  11:	6a 03                	push   $0x3
+  13:	6a 02                	push   $0x2
+  15:	6a 01                	push   $0x1
+  17:	e8 fc ff ff ff       	call   18 <main+0x18>
+  1c:	8b 4d fc             	mov    -0x4(%ebp),%ecx
+  1f:	31 c0                	xor    %eax,%eax
+  21:	c9                   	leave  
+  22:	8d 61 fc             	lea    -0x4(%ecx),%esp
+  25:	c3                   	ret    

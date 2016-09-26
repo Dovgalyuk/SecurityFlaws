@@ -49,35 +49,30 @@ Disassembly of section .text:
   71:	89 e5                	mov    %esp,%ebp
   73:	53                   	push   %ebx
   74:	8d 5d ec             	lea    -0x14(%ebp),%ebx
-  77:	83 ec 30             	sub    $0x30,%esp
+  77:	83 ec 40             	sub    $0x40,%esp
   7a:	53                   	push   %ebx
   7b:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
   81:	89 45 f4             	mov    %eax,-0xc(%ebp)
   84:	31 c0                	xor    %eax,%eax
   86:	e8 fc ff ff ff       	call   87 <func+0x17>
-  8b:	8d 45 e8             	lea    -0x18(%ebp),%eax
-  8e:	50                   	push   %eax
-  8f:	8d 45 e4             	lea    -0x1c(%ebp),%eax
-  92:	50                   	push   %eax
-  93:	8d 45 e0             	lea    -0x20(%ebp),%eax
-  96:	50                   	push   %eax
-  97:	68 00 00 00 00       	push   $0x0
-  9c:	e8 fc ff ff ff       	call   9d <func+0x2d>
-  a1:	83 c4 14             	add    $0x14,%esp
-  a4:	ff 75 e8             	pushl  -0x18(%ebp)
-  a7:	ff 75 e4             	pushl  -0x1c(%ebp)
-  aa:	ff 75 e0             	pushl  -0x20(%ebp)
-  ad:	53                   	push   %ebx
-  ae:	68 09 00 00 00       	push   $0x9
-  b3:	e8 fc ff ff ff       	call   b4 <func+0x44>
-  b8:	83 c4 20             	add    $0x20,%esp
-  bb:	8b 45 f4             	mov    -0xc(%ebp),%eax
-  be:	65 33 05 14 00 00 00 	xor    %gs:0x14,%eax
-  c5:	75 05                	jne    cc <func+0x5c>
-  c7:	8b 5d fc             	mov    -0x4(%ebp),%ebx
-  ca:	c9                   	leave  
-  cb:	c3                   	ret    
-  cc:	e8 fc ff ff ff       	call   cd <func+0x5d>
+  8b:	8d 45 d4             	lea    -0x2c(%ebp),%eax
+  8e:	89 04 24             	mov    %eax,(%esp)
+  91:	e8 fc ff ff ff       	call   92 <func+0x22>
+  96:	58                   	pop    %eax
+  97:	ff 75 e4             	pushl  -0x1c(%ebp)
+  9a:	ff 75 dc             	pushl  -0x24(%ebp)
+  9d:	ff 75 d4             	pushl  -0x2c(%ebp)
+  a0:	53                   	push   %ebx
+  a1:	68 09 00 00 00       	push   $0x9
+  a6:	e8 fc ff ff ff       	call   a7 <func+0x37>
+  ab:	83 c4 20             	add    $0x20,%esp
+  ae:	8b 45 f4             	mov    -0xc(%ebp),%eax
+  b1:	65 33 05 14 00 00 00 	xor    %gs:0x14,%eax
+  b8:	75 05                	jne    bf <func+0x4f>
+  ba:	8b 5d fc             	mov    -0x4(%ebp),%ebx
+  bd:	c9                   	leave  
+  be:	c3                   	ret    
+  bf:	e8 fc ff ff ff       	call   c0 <func+0x50>
 
 Disassembly of section .text.startup:
 

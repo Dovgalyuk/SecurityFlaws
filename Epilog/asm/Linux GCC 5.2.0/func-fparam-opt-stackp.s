@@ -47,32 +47,24 @@ Disassembly of section .text.startup:
    7:	ff 71 fc             	pushl  -0x4(%ecx)
    a:	55                   	push   %ebp
    b:	89 e5                	mov    %esp,%ebp
-   d:	53                   	push   %ebx
-   e:	51                   	push   %ecx
-   f:	8d 5d ec             	lea    -0x14(%ebp),%ebx
-  12:	83 ec 1c             	sub    $0x1c,%esp
-  15:	53                   	push   %ebx
-  16:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
-  1c:	89 45 f4             	mov    %eax,-0xc(%ebp)
-  1f:	31 c0                	xor    %eax,%eax
-  21:	e8 fc ff ff ff       	call   22 <main+0x22>
-  26:	53                   	push   %ebx
-  27:	68 00 00 08 40       	push   $0x40080000
-  2c:	6a 00                	push   $0x0
-  2e:	68 00 00 00 40       	push   $0x40000000
-  33:	6a 00                	push   $0x0
-  35:	68 00 00 f0 3f       	push   $0x3ff00000
-  3a:	6a 00                	push   $0x0
-  3c:	68 00 00 00 00       	push   $0x0
-  41:	e8 fc ff ff ff       	call   42 <main+0x42>
-  46:	8b 55 f4             	mov    -0xc(%ebp),%edx
-  49:	65 33 15 14 00 00 00 	xor    %gs:0x14,%edx
-  50:	75 0c                	jne    5e <main+0x5e>
-  52:	8d 65 f8             	lea    -0x8(%ebp),%esp
-  55:	31 c0                	xor    %eax,%eax
-  57:	59                   	pop    %ecx
-  58:	5b                   	pop    %ebx
-  59:	5d                   	pop    %ebp
-  5a:	8d 61 fc             	lea    -0x4(%ecx),%esp
-  5d:	c3                   	ret    
-  5e:	e8 fc ff ff ff       	call   5f <main+0x5f>
+   d:	51                   	push   %ecx
+   e:	83 ec 1c             	sub    $0x1c,%esp
+  11:	68 00 00 08 40       	push   $0x40080000
+  16:	6a 00                	push   $0x0
+  18:	68 00 00 00 40       	push   $0x40000000
+  1d:	6a 00                	push   $0x0
+  1f:	68 00 00 f0 3f       	push   $0x3ff00000
+  24:	6a 00                	push   $0x0
+  26:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
+  2c:	89 45 f4             	mov    %eax,-0xc(%ebp)
+  2f:	31 c0                	xor    %eax,%eax
+  31:	e8 fc ff ff ff       	call   32 <main+0x32>
+  36:	8b 55 f4             	mov    -0xc(%ebp),%edx
+  39:	65 33 15 14 00 00 00 	xor    %gs:0x14,%edx
+  40:	75 0a                	jne    4c <main+0x4c>
+  42:	8b 4d fc             	mov    -0x4(%ebp),%ecx
+  45:	31 c0                	xor    %eax,%eax
+  47:	c9                   	leave  
+  48:	8d 61 fc             	lea    -0x4(%ecx),%esp
+  4b:	c3                   	ret    
+  4c:	e8 fc ff ff ff       	call   4d <main+0x4d>

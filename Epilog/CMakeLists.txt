@@ -53,6 +53,7 @@ else()
   else()
     list(APPEND default_options -fno-stack-protector)
   endif()
+  list(APPEND default_options -fno-inline)
 endif()
 
 if(WIN32)

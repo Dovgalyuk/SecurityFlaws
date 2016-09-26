@@ -45,39 +45,41 @@ Disassembly of section .text:
   69:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
 
 00000070 <func>:
-  70:	55                   	push   %ebp
-  71:	89 e5                	mov    %esp,%ebp
-  73:	53                   	push   %ebx
-  74:	8d 5d ec             	lea    -0x14(%ebp),%ebx
-  77:	83 ec 30             	sub    $0x30,%esp
-  7a:	53                   	push   %ebx
-  7b:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
-  81:	89 45 f4             	mov    %eax,-0xc(%ebp)
-  84:	31 c0                	xor    %eax,%eax
-  86:	e8 fc ff ff ff       	call   87 <func+0x17>
-  8b:	8d 45 e8             	lea    -0x18(%ebp),%eax
-  8e:	50                   	push   %eax
-  8f:	8d 45 e4             	lea    -0x1c(%ebp),%eax
-  92:	50                   	push   %eax
-  93:	8d 45 e0             	lea    -0x20(%ebp),%eax
-  96:	50                   	push   %eax
-  97:	68 00 00 00 00       	push   $0x0
+  70:	8d 4c 24 04          	lea    0x4(%esp),%ecx
+  74:	83 e4 e0             	and    $0xffffffe0,%esp
+  77:	ff 71 fc             	pushl  -0x4(%ecx)
+  7a:	55                   	push   %ebp
+  7b:	89 e5                	mov    %esp,%ebp
+  7d:	53                   	push   %ebx
+  7e:	51                   	push   %ecx
+  7f:	8d 5d dc             	lea    -0x24(%ebp),%ebx
+  82:	83 ec 5c             	sub    $0x5c,%esp
+  85:	53                   	push   %ebx
+  86:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
+  8c:	89 45 e4             	mov    %eax,-0x1c(%ebp)
+  8f:	31 c0                	xor    %eax,%eax
+  91:	e8 fc ff ff ff       	call   92 <func+0x22>
+  96:	8d 45 a8             	lea    -0x58(%ebp),%eax
+  99:	89 04 24             	mov    %eax,(%esp)
   9c:	e8 fc ff ff ff       	call   9d <func+0x2d>
-  a1:	83 c4 14             	add    $0x14,%esp
-  a4:	ff 75 e8             	pushl  -0x18(%ebp)
-  a7:	ff 75 e4             	pushl  -0x1c(%ebp)
-  aa:	ff 75 e0             	pushl  -0x20(%ebp)
-  ad:	53                   	push   %ebx
-  ae:	68 09 00 00 00       	push   $0x9
-  b3:	e8 fc ff ff ff       	call   b4 <func+0x44>
-  b8:	83 c4 20             	add    $0x20,%esp
-  bb:	8b 45 f4             	mov    -0xc(%ebp),%eax
-  be:	65 33 05 14 00 00 00 	xor    %gs:0x14,%eax
-  c5:	75 05                	jne    cc <func+0x5c>
-  c7:	8b 5d fc             	mov    -0x4(%ebp),%ebx
-  ca:	c9                   	leave  
-  cb:	c3                   	ret    
-  cc:	e8 fc ff ff ff       	call   cd <func+0x5d>
+  a1:	58                   	pop    %eax
+  a2:	ff 75 b8             	pushl  -0x48(%ebp)
+  a5:	ff 75 b0             	pushl  -0x50(%ebp)
+  a8:	ff 75 a8             	pushl  -0x58(%ebp)
+  ab:	53                   	push   %ebx
+  ac:	68 09 00 00 00       	push   $0x9
+  b1:	e8 fc ff ff ff       	call   b2 <func+0x42>
+  b6:	83 c4 20             	add    $0x20,%esp
+  b9:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+  bc:	65 33 05 14 00 00 00 	xor    %gs:0x14,%eax
+  c3:	75 0a                	jne    cf <func+0x5f>
+  c5:	8d 65 f8             	lea    -0x8(%ebp),%esp
+  c8:	59                   	pop    %ecx
+  c9:	5b                   	pop    %ebx
+  ca:	5d                   	pop    %ebp
+  cb:	8d 61 fc             	lea    -0x4(%ecx),%esp
+  ce:	c3                   	ret    
+  cf:	e8 fc ff ff ff       	call   d0 <func+0x60>
 
 Disassembly of section .text.startup:
 

@@ -34,29 +34,20 @@ Disassembly of section .text.startup:
 00000000 <main>:
    0:	8d 4c 24 04          	lea    0x4(%esp),%ecx
    4:	83 e4 f0             	and    $0xfffffff0,%esp
-   7:	ff 71 fc             	pushl  -0x4(%ecx)
-   a:	55                   	push   %ebp
-   b:	89 e5                	mov    %esp,%ebp
-   d:	53                   	push   %ebx
-   e:	51                   	push   %ecx
-   f:	8d 5d f0             	lea    -0x10(%ebp),%ebx
-  12:	83 ec 1c             	sub    $0x1c,%esp
-  15:	53                   	push   %ebx
-  16:	e8 fc ff ff ff       	call   17 <main+0x17>
-  1b:	58                   	pop    %eax
-  1c:	5a                   	pop    %edx
-  1d:	53                   	push   %ebx
-  1e:	6a 04                	push   $0x4
-  20:	6a 03                	push   $0x3
-  22:	6a 02                	push   $0x2
-  24:	6a 01                	push   $0x1
-  26:	68 00 00 00 00       	push   $0x0
-  2b:	e8 fc ff ff ff       	call   2c <main+0x2c>
-  30:	83 c4 20             	add    $0x20,%esp
-  33:	8d 65 f8             	lea    -0x8(%ebp),%esp
-  36:	31 c0                	xor    %eax,%eax
-  38:	59                   	pop    %ecx
-  39:	5b                   	pop    %ebx
-  3a:	5d                   	pop    %ebp
-  3b:	8d 61 fc             	lea    -0x4(%ecx),%esp
-  3e:	c3                   	ret    
+   7:	ba 02 00 00 00       	mov    $0x2,%edx
+   c:	ff 71 fc             	pushl  -0x4(%ecx)
+   f:	55                   	push   %ebp
+  10:	89 e5                	mov    %esp,%ebp
+  12:	51                   	push   %ecx
+  13:	b9 01 00 00 00       	mov    $0x1,%ecx
+  18:	83 ec 0c             	sub    $0xc,%esp
+  1b:	6a 04                	push   $0x4
+  1d:	6a 03                	push   $0x3
+  1f:	e8 fc ff ff ff       	call   20 <main+0x20>
+  24:	8b 4d fc             	mov    -0x4(%ebp),%ecx
+  27:	58                   	pop    %eax
+  28:	31 c0                	xor    %eax,%eax
+  2a:	5a                   	pop    %edx
+  2b:	c9                   	leave  
+  2c:	8d 61 fc             	lea    -0x4(%ecx),%esp
+  2f:	c3                   	ret    

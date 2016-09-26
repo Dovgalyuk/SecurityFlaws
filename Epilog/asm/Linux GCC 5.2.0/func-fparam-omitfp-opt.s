@@ -37,26 +37,18 @@ Disassembly of section .text.startup:
    7:	ff 71 fc             	pushl  -0x4(%ecx)
    a:	55                   	push   %ebp
    b:	89 e5                	mov    %esp,%ebp
-   d:	53                   	push   %ebx
-   e:	51                   	push   %ecx
-   f:	8d 5d f0             	lea    -0x10(%ebp),%ebx
-  12:	83 ec 1c             	sub    $0x1c,%esp
-  15:	53                   	push   %ebx
-  16:	e8 fc ff ff ff       	call   17 <main+0x17>
-  1b:	53                   	push   %ebx
-  1c:	68 00 00 08 40       	push   $0x40080000
-  21:	6a 00                	push   $0x0
-  23:	68 00 00 00 40       	push   $0x40000000
-  28:	6a 00                	push   $0x0
-  2a:	68 00 00 f0 3f       	push   $0x3ff00000
-  2f:	6a 00                	push   $0x0
-  31:	68 00 00 00 00       	push   $0x0
-  36:	e8 fc ff ff ff       	call   37 <main+0x37>
-  3b:	83 c4 30             	add    $0x30,%esp
-  3e:	8d 65 f8             	lea    -0x8(%ebp),%esp
-  41:	31 c0                	xor    %eax,%eax
-  43:	59                   	pop    %ecx
-  44:	5b                   	pop    %ebx
-  45:	5d                   	pop    %ebp
-  46:	8d 61 fc             	lea    -0x4(%ecx),%esp
-  49:	c3                   	ret    
+   d:	51                   	push   %ecx
+   e:	83 ec 0c             	sub    $0xc,%esp
+  11:	68 00 00 08 40       	push   $0x40080000
+  16:	6a 00                	push   $0x0
+  18:	68 00 00 00 40       	push   $0x40000000
+  1d:	6a 00                	push   $0x0
+  1f:	68 00 00 f0 3f       	push   $0x3ff00000
+  24:	6a 00                	push   $0x0
+  26:	e8 fc ff ff ff       	call   27 <main+0x27>
+  2b:	8b 4d fc             	mov    -0x4(%ebp),%ecx
+  2e:	83 c4 20             	add    $0x20,%esp
+  31:	31 c0                	xor    %eax,%eax
+  33:	c9                   	leave  
+  34:	8d 61 fc             	lea    -0x4(%ecx),%esp
+  37:	c3                   	ret    

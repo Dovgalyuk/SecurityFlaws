@@ -51,33 +51,22 @@ Disassembly of section .text.startup:
    7:	ff 71 fc             	pushl  -0x4(%ecx)
    a:	55                   	push   %ebp
    b:	89 e5                	mov    %esp,%ebp
-   d:	53                   	push   %ebx
-   e:	51                   	push   %ecx
-   f:	8d 5d ec             	lea    -0x14(%ebp),%ebx
-  12:	83 ec 1c             	sub    $0x1c,%esp
-  15:	53                   	push   %ebx
-  16:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
-  1c:	89 45 f4             	mov    %eax,-0xc(%ebp)
-  1f:	31 c0                	xor    %eax,%eax
-  21:	e8 fc ff ff ff       	call   22 <main+0x22>
-  26:	58                   	pop    %eax
-  27:	5a                   	pop    %edx
-  28:	53                   	push   %ebx
-  29:	6a 04                	push   $0x4
-  2b:	6a 03                	push   $0x3
-  2d:	6a 02                	push   $0x2
-  2f:	6a 01                	push   $0x1
-  31:	68 00 00 00 00       	push   $0x0
-  36:	e8 fc ff ff ff       	call   37 <main+0x37>
-  3b:	83 c4 20             	add    $0x20,%esp
-  3e:	8b 55 f4             	mov    -0xc(%ebp),%edx
-  41:	65 33 15 14 00 00 00 	xor    %gs:0x14,%edx
-  48:	75 0c                	jne    56 <main+0x56>
-  4a:	8d 65 f8             	lea    -0x8(%ebp),%esp
-  4d:	31 c0                	xor    %eax,%eax
-  4f:	59                   	pop    %ecx
-  50:	5b                   	pop    %ebx
-  51:	5d                   	pop    %ebp
-  52:	8d 61 fc             	lea    -0x4(%ecx),%esp
-  55:	c3                   	ret    
-  56:	e8 fc ff ff ff       	call   57 <main+0x57>
+   d:	51                   	push   %ecx
+   e:	83 ec 14             	sub    $0x14,%esp
+  11:	6a 04                	push   $0x4
+  13:	6a 03                	push   $0x3
+  15:	6a 02                	push   $0x2
+  17:	6a 01                	push   $0x1
+  19:	65 a1 14 00 00 00    	mov    %gs:0x14,%eax
+  1f:	89 45 f4             	mov    %eax,-0xc(%ebp)
+  22:	31 c0                	xor    %eax,%eax
+  24:	e8 fc ff ff ff       	call   25 <main+0x25>
+  29:	8b 55 f4             	mov    -0xc(%ebp),%edx
+  2c:	65 33 15 14 00 00 00 	xor    %gs:0x14,%edx
+  33:	75 0a                	jne    3f <main+0x3f>
+  35:	8b 4d fc             	mov    -0x4(%ebp),%ecx
+  38:	31 c0                	xor    %eax,%eax
+  3a:	c9                   	leave  
+  3b:	8d 61 fc             	lea    -0x4(%ecx),%esp
+  3e:	c3                   	ret    
+  3f:	e8 fc ff ff ff       	call   40 <main+0x40>

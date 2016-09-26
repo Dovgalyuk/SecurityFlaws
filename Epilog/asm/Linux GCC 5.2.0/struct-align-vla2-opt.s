@@ -1,5 +1,5 @@
 
-/root/AntiTaint/Epilog/build/CMakeFiles/struct-align-vla-opt.dir/src/struct-align-vla.c.o:     file format elf32-i386
+/root/AntiTaint/Epilog/build/CMakeFiles/struct-align-vla2-opt.dir/src/struct-align-vla2.c.o:     file format elf32-i386
 
 
 Disassembly of section .text:
@@ -77,51 +77,62 @@ Disassembly of section .text:
   a3:	57                   	push   %edi
   a4:	56                   	push   %esi
   a5:	53                   	push   %ebx
-  a6:	8d 7d e0             	lea    -0x20(%ebp),%edi
-  a9:	31 db                	xor    %ebx,%ebx
-  ab:	83 ec 38             	sub    $0x38,%esp
-  ae:	57                   	push   %edi
-  af:	e8 fc ff ff ff       	call   b0 <func+0x10>
-  b4:	8d 45 dc             	lea    -0x24(%ebp),%eax
-  b7:	83 c4 0c             	add    $0xc,%esp
-  ba:	50                   	push   %eax
-  bb:	68 13 00 00 00       	push   $0x13
-  c0:	57                   	push   %edi
-  c1:	e8 fc ff ff ff       	call   c2 <func+0x22>
-  c6:	8b 55 dc             	mov    -0x24(%ebp),%edx
-  c9:	83 c4 10             	add    $0x10,%esp
-  cc:	89 d0                	mov    %edx,%eax
-  ce:	c1 e0 05             	shl    $0x5,%eax
-  d1:	83 c0 20             	add    $0x20,%eax
-  d4:	29 c4                	sub    %eax,%esp
-  d6:	8d 74 24 1f          	lea    0x1f(%esp),%esi
-  da:	83 e6 e0             	and    $0xffffffe0,%esi
-  dd:	85 d2                	test   %edx,%edx
-  df:	89 75 d4             	mov    %esi,-0x2c(%ebp)
-  e2:	7e 1b                	jle    ff <func+0x5f>
-  e4:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
-  e8:	83 ec 0c             	sub    $0xc,%esp
-  eb:	83 c3 01             	add    $0x1,%ebx
-  ee:	56                   	push   %esi
-  ef:	83 c6 20             	add    $0x20,%esi
-  f2:	e8 fc ff ff ff       	call   f3 <func+0x53>
-  f7:	83 c4 10             	add    $0x10,%esp
-  fa:	39 5d dc             	cmp    %ebx,-0x24(%ebp)
-  fd:	7f e9                	jg     e8 <func+0x48>
-  ff:	83 ec 0c             	sub    $0xc,%esp
- 102:	57                   	push   %edi
- 103:	e8 fc ff ff ff       	call   104 <func+0x64>
- 108:	58                   	pop    %eax
- 109:	5a                   	pop    %edx
- 10a:	ff 75 dc             	pushl  -0x24(%ebp)
- 10d:	ff 75 d4             	pushl  -0x2c(%ebp)
- 110:	e8 fc ff ff ff       	call   111 <func+0x71>
- 115:	8d 65 f4             	lea    -0xc(%ebp),%esp
- 118:	5b                   	pop    %ebx
- 119:	5e                   	pop    %esi
- 11a:	5f                   	pop    %edi
- 11b:	5d                   	pop    %ebp
- 11c:	c3                   	ret    
+  a6:	8d 45 e0             	lea    -0x20(%ebp),%eax
+  a9:	bb 01 00 00 00       	mov    $0x1,%ebx
+  ae:	83 ec 38             	sub    $0x38,%esp
+  b1:	50                   	push   %eax
+  b2:	e8 fc ff ff ff       	call   b3 <func+0x13>
+  b7:	8d 45 dc             	lea    -0x24(%ebp),%eax
+  ba:	83 c4 0c             	add    $0xc,%esp
+  bd:	50                   	push   %eax
+  be:	8d 45 e0             	lea    -0x20(%ebp),%eax
+  c1:	68 13 00 00 00       	push   $0x13
+  c6:	50                   	push   %eax
+  c7:	e8 fc ff ff ff       	call   c8 <func+0x28>
+  cc:	8b 45 dc             	mov    -0x24(%ebp),%eax
+  cf:	83 c4 10             	add    $0x10,%esp
+  d2:	85 c0                	test   %eax,%eax
+  d4:	7e 57                	jle    12d <func+0x8d>
+  d6:	8d 76 00             	lea    0x0(%esi),%esi
+  d9:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
+  e0:	89 d8                	mov    %ebx,%eax
+  e2:	89 65 d4             	mov    %esp,-0x2c(%ebp)
+  e5:	31 ff                	xor    %edi,%edi
+  e7:	c1 e0 05             	shl    $0x5,%eax
+  ea:	83 c0 20             	add    $0x20,%eax
+  ed:	29 c4                	sub    %eax,%esp
+  ef:	8d 74 24 1f          	lea    0x1f(%esp),%esi
+  f3:	83 e6 e0             	and    $0xffffffe0,%esi
+  f6:	85 db                	test   %ebx,%ebx
+  f8:	89 75 d0             	mov    %esi,-0x30(%ebp)
+  fb:	7e 19                	jle    116 <func+0x76>
+  fd:	8d 76 00             	lea    0x0(%esi),%esi
+ 100:	83 ec 0c             	sub    $0xc,%esp
+ 103:	83 c7 01             	add    $0x1,%edi
+ 106:	56                   	push   %esi
+ 107:	83 c6 20             	add    $0x20,%esi
+ 10a:	e8 fc ff ff ff       	call   10b <func+0x6b>
+ 10f:	83 c4 10             	add    $0x10,%esp
+ 112:	39 df                	cmp    %ebx,%edi
+ 114:	75 ea                	jne    100 <func+0x60>
+ 116:	83 ec 08             	sub    $0x8,%esp
+ 119:	53                   	push   %ebx
+ 11a:	ff 75 d0             	pushl  -0x30(%ebp)
+ 11d:	83 c3 01             	add    $0x1,%ebx
+ 120:	e8 fc ff ff ff       	call   121 <func+0x81>
+ 125:	39 5d dc             	cmp    %ebx,-0x24(%ebp)
+ 128:	8b 65 d4             	mov    -0x2c(%ebp),%esp
+ 12b:	7d b3                	jge    e0 <func+0x40>
+ 12d:	8d 45 e0             	lea    -0x20(%ebp),%eax
+ 130:	83 ec 0c             	sub    $0xc,%esp
+ 133:	50                   	push   %eax
+ 134:	e8 fc ff ff ff       	call   135 <func+0x95>
+ 139:	8d 65 f4             	lea    -0xc(%ebp),%esp
+ 13c:	5b                   	pop    %ebx
+ 13d:	5e                   	pop    %esi
+ 13e:	5f                   	pop    %edi
+ 13f:	5d                   	pop    %ebp
+ 140:	c3                   	ret    
 
 Disassembly of section .text.startup:
 
